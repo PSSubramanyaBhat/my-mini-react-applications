@@ -161,7 +161,8 @@ main {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
+  /* margin-top: -20px; */
   padding-bottom: 10px;
   border-bottom:solid 1px #ccdfd9;
   align-items: center;
@@ -227,7 +228,7 @@ my set of class definitions for styling
 
 .container .addbutton:hover {
   /* background: rgb(255, 56, 56); */
-  background: rgb(126, 50, 226);
+  background: rgb(99, 99, 236);
   /* background: rgb(185, 61, 243); */
   color: var(--clr-white);
   border-radius: 50%;
@@ -241,4 +242,57 @@ my set of class definitions for styling
 
   }
   */
+}
+.birthdayinfo {
+  padding-top: 30px;
+}
+
+.person .infobtn {
+  color: var(--clr-white);
+  float: right;
+  /* display: block; */
+  width: 30%;
+  /* border-color: transparent; */
+  background: rgb(99, 99, 236);
+  margin: 2rem auto 0 auto;
+  text-transform: capitalize;
+  font-size: 0.6rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 0.5rem 0;
+  letter-spacing: var(--spacing);
+  outline: none;
+  /* margin-left: 20px; */
+  /* margin-bottom: 60px; */
+  cursor: pointer;
+}
+
+.normalview{
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--light-shadow);
+}
+
+.detailedview {
+  height:90px;
+  width: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--light-shadow);
+  /* transform: scale(1.8); */
+}
+
+.companyinfo {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.designation {
+  font-weight: 400;
+  font-size: 14px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #333;
 }
