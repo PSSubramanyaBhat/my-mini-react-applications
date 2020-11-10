@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import data from './data';
+import List from './List';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [people, setPeople] = useState(data);
+  const newObj = {}
+  return <main>
+    <section className="container">
+      <div class="flexcontainer">
+        <h3>{people.length} birthdays today</h3>
+        <button class="addbutton"
+          onClick={() => {
+            // data.push({
+            //   id: 6,
+            //   name: 'Bertie Yates',
+            //   age: 29,
+            //   image:
+            //     'https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg',
+            // });
+
+            // setPeople(data);
+            
+            // console.log(data);
+            // console.log(people);
+            
+          }}
+        >+</button>
+      </div>
+      <List people={people}>
+      </List>
+      <button onClick={() => setPeople([])}>
+        Clear all
+    </button>
+    </section>
+  </main>;
 }
 
 export default App;
