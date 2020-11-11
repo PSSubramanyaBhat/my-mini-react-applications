@@ -177,9 +177,11 @@ main {
 }
 .person h4 {
   margin-bottom: 0.35rem;
+  /* margin-left: -5px; */
 }
 .person p {
   margin-bottom: 0;
+  margin-left: -5px;
 }
 
 .container button {
@@ -320,6 +322,7 @@ my set of class definitions for styling
   height: 30px;
   flex: 1;
   margin-top: -20px;
+  margin-left: 18px;
   /* color: rgb(99, 99, 236); */
   color: rgb(75, 75, 206);
 }
@@ -377,7 +380,7 @@ my set of class definitions for styling
   text-align: center;
 }
 
-.container textarea {
+.container textArea {
   flex: 1.5;
   margin-top: 5px;
   margin-left: -2px;
@@ -405,3 +408,55 @@ my set of class definitions for styling
 .container .navigationDivision {
   display: flex;
 }
+
+.pushText {
+  animation-name: animation1;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  /* background-color: red; */
+}
+
+.pushImage {
+  animation-name: animation2;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  /* background-color: red; */
+}
+
+@keyframes animation1 {
+  /* from {
+    top: 0;
+  } */
+
+  to {
+    padding-top: 10px;
+  }
+}
+
+@keyframes animation2 {
+  to {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 60px;
+    margin-left: 10px;
+    /* background-color: red; */
+    /* margin-top: -100px; */
+  }
+}
+
+/* This is the animation to push the text below image and 
+image should be in the centre of the screen 
+and testarea should enlarge
+*/
+/* @keyframes animation3 {
+  to {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 60px;
+    margin-left: 10px;
+  }
+} */
