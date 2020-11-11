@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import data from './data';
 import List from './List';
+import {
+  BsArrowLeftShort, BsArrowRightShort,
+  BsFillGiftFill, BsAlarm,
+  BsAlarmFill, BsPlus
+} from "react-icons/bs";
+
 function App() {
   const [people, setPeople] = useState(data);
-  const newObj = {}
+  // const newObj = {}
   return <main>
     <section className="container">
       <div class="flexcontainer">
-        <h3>{people.length} birthdays today</h3>
+        <h3><BsFillGiftFill className="bdayIcon" /> {people.length} birthdays today</h3>
         <button class="addbutton"
           onClick={() => {
             // data.push({
@@ -19,18 +25,50 @@ function App() {
             // });
 
             // setPeople(data);
-            
+
             // console.log(data);
             // console.log(people);
-            
+
           }}
-        >+</button>
+        >
+        {/* <BsPlus/> */}
+        +
+        </button>
       </div>
-      <List people={people}>
-      </List>
+
+      {/* This below snippet is to call all dtata values in data api in the form of <List/> class */}
+      {
+        people.map((person) => {
+          return <List key={person.id} {...person} />
+        })
+      }
+
+
+
       <button onClick={() => setPeople([])}>
         Clear all
-    </button>
+      </button>
+
+      <div className="navigationDivision">
+        <button
+          className="navigationArrow"
+          onClick={() => { }
+
+          }
+        >
+          <BsArrowLeftShort />
+        </button>
+
+        <p className="pageNumber">Page1</p>
+        <button
+          className="navigationArrow"
+          onClick={() => { }
+
+          }
+        >
+          <BsArrowRightShort />
+        </button>
+      </div>
     </section>
   </main>;
 }

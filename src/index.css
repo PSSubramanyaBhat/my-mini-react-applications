@@ -142,7 +142,7 @@ main {
 
 .container {
   width: 90vw;
-  margin: 5rem 0;
+  margin: 5rem 0 5rem 0;
   max-width: var(--fixed-width);
   background: var(--clr-white);
   border-radius: var(--radius);
@@ -170,6 +170,7 @@ main {
 .person img {
   width: 75px;
   height: 75px;
+  margin-top: 15px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: var(--light-shadow);
@@ -259,10 +260,11 @@ my set of class definitions for styling
   font-size: 0.6rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 0.5rem 0;
-  letter-spacing: var(--spacing);
+  /* letter-spacing: var(--spacing); */
+  letter-spacing: 0.04rem;
   outline: none;
   /* margin-left: 20px; */
-  /* margin-bottom: 60px; */
+  margin-top: -15px;
   cursor: pointer;
 }
 
@@ -286,6 +288,7 @@ my set of class definitions for styling
 .companyinfo {
   font-weight: bold;
   font-size: 14px;
+  margin-top: 15px;
   color: #000;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -295,4 +298,110 @@ my set of class definitions for styling
   font-size: 14px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #333;
+}
+
+.wishTitle {
+  font-weight: 400;
+  font-size: 11px;
+  padding-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.bdayIcon{
+  width: 23px;
+  height: 23px;
+  /* color: rgb(99, 99, 236); */
+  color: rgb(75, 75, 206);
+}
+
+.sendIcon{
+  width: 30px;
+  height: 30px;
+  flex: 1;
+  margin-top: -20px;
+  /* color: rgb(99, 99, 236); */
+  color: rgb(75, 75, 206);
+}
+
+.emailIcon{
+  width: 20px;
+  height: 20px;
+  /* flex: 1; */
+  padding-top: 5px;
+  margin-right: -1px;
+  margin-bottom: -3px;
+  /* color: rgb(99, 99, 236); */
+  color: rgb(75, 75, 206);
+}
+
+
+.container .navigationArrow {
+  color: rgb(75, 75, 206);
+  font-weight: 600;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 35px;
+  height: 30px;
+  padding-bottom: 25px;
+  outline: none;
+  flex: 1;
+}
+
+.container .navigationArrow:hover {
+  color: rgb(75, 75, 206);
+  font-weight: 600;
+  /* background-color: rgba(197, 188, 218, 0.87); */
+  border-radius: 50%;
+  width: 35px;
+  height: 30px;
+  outline: none;
+  transition: all 1s ease-in-out;
+  flex: 1;
+}
+
+.container .pageNumber {
+  flex: 4;
+  font-size: 12px;
+  padding-top: 40px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  justify-content: center;
+  text-align: center;
+}
+
+.container .sendmessage {
+  display: flex;
+  font-size: 12px;
+  /* padding-top: 40px; */
+  justify-content: center;
+  text-align: center;
+}
+
+.container textarea {
+  flex: 1.5;
+  margin-top: 5px;
+  margin-left: -2px;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container .mailicons {
+  color: rgb(75, 75, 206);
+  font-weight: 600;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 35px;
+  height: 30px;
+  padding-bottom: 25px;
+  margin-left: -30px;
+  outline: none;
+  flex: 1;
+}
+
+.container .navigationDivision {
+  display: flex;
 }
