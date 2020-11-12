@@ -325,6 +325,7 @@ my set of class definitions for styling
   margin-left: 18px;
   /* color: rgb(99, 99, 236); */
   color: rgb(75, 75, 206);
+  /* color: rgb(162, 162, 196); */
 }
 
 .emailIcon{
@@ -396,7 +397,20 @@ my set of class definitions for styling
   color: rgb(75, 75, 206);
   font-weight: 600;
   background-color: #fff;
-  border-radius: 50%;
+  /* border-radius: 50%; */
+  width: 35px;
+  height: 30px;
+  padding-bottom: 25px;
+  margin-left: -30px;
+  outline: none;
+  flex: 1;
+}
+
+.container .mailicons p{
+  color: rgb(75, 75, 206);
+  font-weight: 600;
+  background-color: #fff;
+  /* border-radius: 50%; */
   width: 35px;
   height: 30px;
   padding-bottom: 25px;
@@ -407,6 +421,21 @@ my set of class definitions for styling
 
 .container .navigationDivision {
   display: flex;
+}
+
+.NoBirthday{
+  justify-content: center;
+  text-align: center;
+}
+
+.container .NoBirthday img {
+  height:   140px;
+  /* width: 30px; */
+}
+
+.container .NoBirthday p {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 14px;
 }
 
 .pushText {
@@ -423,6 +452,46 @@ my set of class definitions for styling
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   /* background-color: red; */
+}
+
+/* .pushImage {
+  animation-name: animation2;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+} */
+
+.sentIcon{
+  width: 30px;
+  height: 30px;
+  flex: 1;
+  margin-top: -20px;
+  margin-left: 18px;
+  color: rgb(75, 75, 206);
+  /* color: rgb(162, 162, 196); */
+  animation-name: sendAnimation;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  /* animation-fill-mode: forwards; */
+}
+
+.resend {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  width: 140px;
+  text-align: center;
+}
+
+@keyframes sendAnimation {
+  from {
+    top: 0;
+  }
+
+  to {
+    transform: scale(12);
+    margin-left: 600px;
+    margin-bottom: 80px;
+  }
 }
 
 @keyframes animation1 {

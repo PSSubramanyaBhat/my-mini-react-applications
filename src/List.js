@@ -8,20 +8,23 @@ import {
 
 import { SiMinutemailer } from "react-icons/si";
 import { MdDone } from "react-icons/md";
+import { GrSend } from "react-icons/gr";
+import { ImUndo2 } from "react-icons/im";
 
 
 const List = ({ id, name, age, image, workplace, description }) => {
   const [showDetails, setShowDetails] = useState(false);
+  const [sentMessage, setSentMessage] = useState(false);
 
   return (
     <div class="underline">
       <article key={id} className="person">
         <img class={cn('normalview', { pushImage: showDetails })} src={image} alt={name} />
-        <div 
+        <div
         // class={cn({ pushText: showDetails })}
         >
           <p
-          class={cn('',{ pushText: showDetails })}
+            class={cn('', { pushText: showDetails })}
           >
             <h4 class="birthdayinfo">{name}</h4>
             <button class="infobtn"
@@ -35,26 +38,46 @@ const List = ({ id, name, age, image, workplace, description }) => {
           <p>{age} years</p>
           <p class="companyinfo">{showDetails ? workplace : `${workplace.substring(0, 0)}`}</p>
           <p class="designation">{showDetails ? description : `${description.substring(0, 0)}`}</p>
-          <p class="wishTitle">{showDetails ? <p><BsFillEnvelopeFill className="emailIcon"/>  Wish the birthday boy/girl</p> : `${workplace.substring(0, 0)}`}</p>
+          <p class="wishTitle">{showDetails ? <p><BsFillEnvelopeFill className="emailIcon" />  Wish the birthday boy/girl</p> : `${workplace.substring(0, 0)}`}</p>
           <div className="sendmessage">
-            {showDetails 
-            ? <textarea
-            // className={cn('TextArea', { pushImage: showDetails })}
-              placeholder='Write a mail here...'
-            >
-            </textarea>
-            : ''
+            {showDetails
+              ? <textarea
+                // className={cn('TextArea', { pushImage: showDetails })}
+                placeholder='Write a mail here...'
+              >
+              </textarea>
+              : ''
             }
 
-            {showDetails 
-            ? <button
-              className="mailicons"
-            >
-              <SiMinutemailer className="sendIcon"/>
-            </button>
-            : ''
+            {showDetails
+              ? <button
+                className="mailicons"
+                onClick={
+                  () => {
+                    setSentMessage(!sentMessage);
+                   
+                  }
+                }
+              >
+
+                {/* <SiMinutemailer className={cn('sendIcon', { sentIcon: sentMessage })} /> */}
+
+
+
+                {!sentMessage
+                  ? <SiMinutemailer className="sendIcon" />
+                  : <SiMinutemailer className="sentIcon" />
+                  //alert('Wassup');
+
+                }
+
+
+              </button>
+              : ''
             }
-            
+
+
+
 
           </div>
 
