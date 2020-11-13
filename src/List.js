@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import {
   BsFillCursorFill, BsFillEnvelopeFill,
@@ -15,6 +15,10 @@ import { ImUndo2 } from "react-icons/im";
 const List = ({ id, name, age, image, workplace, description }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [sentMessage, setSentMessage] = useState(false);
+
+  useEffect (()=> {
+    setSentMessage(sentMessage);
+  },[sentMessage]);
 
   return (
     <div class="underline">
@@ -36,9 +40,12 @@ const List = ({ id, name, age, image, workplace, description }) => {
             </button>
           </p>
           <p>{age} years</p>
-          <p class="companyinfo">{showDetails ? workplace : `${workplace.substring(0, 0)}`}</p>
-          <p class="designation">{showDetails ? description : `${description.substring(0, 0)}`}</p>
-          <p class="wishTitle">{showDetails ? <p><BsFillEnvelopeFill className="emailIcon" />  Wish the birthday boy/girl</p> : `${workplace.substring(0, 0)}`}</p>
+          {/* <p class="companyinfo">{showDetails ? workplace : `${workplace.substring(0, 0)}`}</p>
+          <p class="designation">{showDetails ? description : `${description.substring(0, 0)}`}</p> */}
+          <p class="companyinfo">{showDetails ? workplace : ''}</p>
+          <p class="designation">{showDetails ? description : ''}</p>
+          {/* <p class="wishTitle">{showDetails ? <p><BsFillEnvelopeFill className="emailIcon" />  Wish the birthday boy/girl</p> : `${workplace.substring(0, 0)}`}</p> */}
+          <p class="wishTitle">{showDetails ? <p><BsFillEnvelopeFill className="emailIcon" />  Wish the birthday boy/girl</p> : ''}</p>
           <div className="sendmessage">
             {showDetails
               ? <textarea
@@ -55,6 +62,7 @@ const List = ({ id, name, age, image, workplace, description }) => {
                 onClick={
                   () => {
                     setSentMessage(!sentMessage);
+                    // setSentMessage(sentMessage);
                    
                   }
                 }
@@ -68,7 +76,6 @@ const List = ({ id, name, age, image, workplace, description }) => {
                   ? <SiMinutemailer className="sendIcon" />
                   : <SiMinutemailer className="sentIcon" />
                   //alert('Wassup');
-
                 }
 
 
