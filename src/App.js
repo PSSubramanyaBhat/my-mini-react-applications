@@ -49,6 +49,7 @@ function App() {
 
   useEffect(() => {
     writeToStorage(ENTRY, data);
+    // writeToStorage(ENTRY, []);
   });
 
   // const newObj = {}
@@ -98,21 +99,9 @@ function App() {
         }
         <button class="addbutton"
           onClick={() => {
-            /*data.push({
-              id: 1,
-              name: 'Bertie Yates',
-              age: 29,
-              image:
-                'https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg',
-              workplace: 'Yahoo Company',
-              description: 'Hi, I am a front end developer, and I like to draw and sing',
-            });*/ //PARTIALLY WORKING......
-
-
             setGenerateID((x) => x + 1);
-            // newvarnum += 1;
+
             const newObj = {
-              // id: 1,
               id: generateID,
               name: 'Bertie Yates',
               age: 29,
@@ -155,7 +144,7 @@ function App() {
       }
       <button onClick={() => {
         setRefresh(!refresh)
-        { refresh ? setPeople(data) : setPeople([]) }
+        // { refresh ? setPeople(data) : setPeople([]) }//PARTIALLY WORKING...
       }
       }>
         {refresh ? 'Reset' : 'Clear all'}
