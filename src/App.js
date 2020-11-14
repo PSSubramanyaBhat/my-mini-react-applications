@@ -18,7 +18,7 @@ import { GrFormClose, GrEdit } from "react-icons/gr";
 import { MdModeEdit } from "react-icons/md";
 import { RiCloseCircleLine, RiCloseCircleFill, RiEdit2Fill } from "react-icons/ri";
 
-import {AiOutlineCheckCircle, AiTwotoneCheckCircle} from "react-icons/ai";
+import { AiOutlineCheckCircle, AiTwotoneCheckCircle } from "react-icons/ai";
 
 const sampleList = [
   24,
@@ -33,17 +33,31 @@ const sampleid = [
 ];
 
 const ENTRY = 'Entry';
+const NAME = 'name';
+const AGE = 'age';
+const WORKPLACE = 'workplace';
+const DESCRIPTION = 'description';
 
 
 Modal.setAppElement("#root");   //DIALOG BOX.....
 
 function App() {
+
+  const newObj = {};
+
+
   const [people, setPeople] = useState(() => readFromStorage(ENTRY) || []);
   const [refresh, setRefresh] = useState(false);
 
   const [generateID, setGenerateID] = useState(6);
 
   const [dateSelected, setDateSelected] = useState(0);
+
+  const [nameEntry, setNameEntry] = useState(() => readFromStorage(NAME) || '');
+  const [ageEntry, setAgeEntry] = useState(() => readFromStorage(AGE) || '');
+  const [workplaceEntry, setWorkplaceEntry] = useState(() => readFromStorage(WORKPLACE) || '');
+  const [descriptionEntry, setDescriptionEntry] = useState(() => readFromStorage(DESCRIPTION) || '');
+
 
   const [isOpen, setIsOpen] = useState(false);   //DIALOG BOX.....
 
@@ -52,6 +66,21 @@ function App() {
   }   //DIALOG BOX.....
 
 
+  function saveNewEntry() {
+    setGenerateID((x) => x + 1);
+
+    newObj.id = generateID;
+    newObj.name = nameEntry;
+    newObj.age = ageEntry;
+    newObj.workplace = workplaceEntry;
+    newObj.description = descriptionEntry;
+    newObj.image = 'https://cdn3.iconfinder.com/data/icons/developers-iconset/90/Developers_Colorai-04-512.png';
+
+    data.push(newObj);
+    // setPeople([...data, newObj]);
+    writeToStorage(ENTRY, data); //PARTIALLY WORKING......
+
+  }
 
 
   // function popUpBox() {
@@ -78,11 +107,13 @@ function App() {
     writeToStorage(ENTRY, data);
   });
 
-  // const newObj = {}
+
+
   return <main>
     <section className="container">
 
       <p className="month">December</p>
+      <p className="year">2020</p>
       <div class="flexcontainer2">
         <button
           className="navigationArrow2"
@@ -136,8 +167,8 @@ function App() {
               id: generateID,
               name: 'Bertie Yates',
               age: 29,
-              image:
-                'https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg',
+              image: 'https://cdn3.iconfinder.com/data/icons/developers-iconset/90/Developers_Colorai-04-512.png',
+                //'https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg',
               workplace: 'Yahoo Company',
               description: 'Hi, I am a front end developer, and I like to draw and sing',
             };
@@ -164,14 +195,6 @@ function App() {
           overlayClassName="myoverlay"
           closeTimeoutMS={500}
         >
-          {/* <div>Add Details hdfhisdflsdgjsbbgjkbskjvnvvn hdfhisdflefefefefe</div> */}
-          {/* <button onClick={toggleModal}>Close modal</button>
-          <button onClick={toggleModal}>Close modal</button>
-
-          <button onClick={toggleModal}>Close modal</button>
-          <button onClick={toggleModal}>Close modal</button> */}
-
-          {/* <h3>Add Details <GrFormClose className="bdayIcon" onClick={toggleModal} /></h3> */}
 
           <header>
             <RiEdit2Fill className="editIcon" />
@@ -179,32 +202,61 @@ function App() {
             <RiCloseCircleLine className="dialogCloseIcon" onClick={toggleModal} />
           </header>
 
+
+
           <h6>Name</h6>
           <textarea
             className="dialogTextArea"
             placeholder='Enter the Name'
+            onChange={(event) => {
+              let nameValue = event.target.value;
+              setNameEntry(nameValue);
+            }}
           >
           </textarea>
+
+
+
 
           <h6>Age</h6>
           <textarea
             className="dialogTextArea"
             placeholder='Enter the Age'
+            onChange={(event) => {
+              let ageValue = event.target.value;
+              setAgeEntry(ageValue);
+            }}
           >
           </textarea>
+
+
+
 
           <h6>Work</h6>
           <textarea
             className="dialogTextArea"
             placeholder='Working at'
+            onChange={(event) => {
+              let workplaceValue = event.target.value;
+              setWorkplaceEntry(workplaceValue);
+            }}
           >
           </textarea>
 
 
+
+
+
+
           <h6>About</h6>
           <textarea
+            rows="6"
             className="dialogTextArea"
             placeholder='Description'
+            onChange={(event) => {
+              let descriptionValue = event.target.value;
+              setDescriptionEntry(descriptionValue);
+            }}
           >
           </textarea>
 
@@ -215,7 +267,29 @@ function App() {
           </textarea> */}
           {/* Later for date picker...... */}
 
-          <AiOutlineCheckCircle className="dialogDoneIcon" onClick={toggleModal} />
+          <AiOutlineCheckCircle className="dialogDoneIcon" onClick={
+
+            () => {
+              // setGenerateID((x) => x + 1);
+
+              // const newObj = {
+              //   id: generateID,
+              //   name: 'Bertie Yates',
+              //   age: 29,
+              //   image: 'https://cdn3.iconfinder.com/data/icons/developers-iconset/90/Developers_Colorai-04-512.png',
+              //   workplace: 'Yahoo Company',
+              //   description: 'Hi, I am a front end developer, and I like to draw and sing',
+              // };
+
+              // data.push(newObj);
+              // // setPeople([...data, newObj]);
+              // writeToStorage(ENTRY, data);  //PARTIALLY WORKING......
+
+
+              saveNewEntry();
+              toggleModal();
+            }
+          } />
 
         </Modal>
 

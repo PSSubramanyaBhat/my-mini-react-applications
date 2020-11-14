@@ -16,9 +16,9 @@ const List = ({ id, name, age, image, workplace, description }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [sentMessage, setSentMessage] = useState(false);
 
-  useEffect (()=> {
+  useEffect(() => {
     setSentMessage(sentMessage);
-  },[sentMessage]);
+  }, [sentMessage]);
 
   return (
     <div class="underline">
@@ -63,7 +63,7 @@ const List = ({ id, name, age, image, workplace, description }) => {
                   () => {
                     setSentMessage(!sentMessage);
                     // setSentMessage(sentMessage);
-                   
+
                   }
                 }
               >
@@ -82,11 +82,20 @@ const List = ({ id, name, age, image, workplace, description }) => {
               </button>
               : ''
             }
-
-
-
-
           </div>
+
+
+          {showDetails
+            ? <button class="deletebtn"
+              onClick={(id) => {
+                // setShowDetails(!showDetails);
+              }}
+            >
+              Delete
+            </button>
+            : ''
+          }
+
 
         </div>
 

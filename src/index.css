@@ -95,6 +95,7 @@ p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-5);
 }
+
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 4rem;
@@ -237,6 +238,7 @@ main {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
+  /* line-height: 15px; */
   margin-top: 5px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 5px;
@@ -418,7 +420,28 @@ my set of class definitions for styling
   letter-spacing: 0.04rem;
   outline: none;
   /* margin-left: 20px; */
-  margin-top: -15px;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.person .deletebtn {
+  color: var(--clr-white);
+  float: right;
+  /* display: block; */
+  width: 65%;
+  /* border-color: transparent; */
+  background: rgb(247, 80, 74);
+  margin: 2rem auto 0 auto;
+  text-transform: capitalize;
+  font-size: 0.6rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 0.5rem 0;
+  /* letter-spacing: var(--spacing); */
+  letter-spacing: 0.04rem;
+  outline: none;
+  /* margin-left: 20px; */
+  margin-top: 10px;
+  margin-right: 58px;
   cursor: pointer;
 }
 
@@ -554,6 +577,18 @@ my set of class definitions for styling
   font-size: 20px;
   font-weight: 600;
   margin-left: 10px;
+  color: #000;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* justify-content: center; */
+  text-align: center;
+}
+
+.container .year {
+  /* flex: 4; */
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-top: -20px;
   color: #000;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   /* justify-content: center; */
