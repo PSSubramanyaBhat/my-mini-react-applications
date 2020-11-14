@@ -3,12 +3,22 @@ import data from './data';
 import List from './List';
 import cn from 'classnames';
 
+import Modal from "react-modal";  //DIALOG BOX.....
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 import { readFromStorage, writeToStorage } from './LocalStorage';
 import {
   BsArrowLeftShort, BsArrowRightShort,
   BsFillGiftFill, BsAlarm,
   BsAlarmFill, BsPlus
 } from "react-icons/bs";
+
+import { GrFormClose, GrEdit } from "react-icons/gr";
+import { MdModeEdit } from "react-icons/md";
+import { RiCloseCircleLine, RiCloseCircleFill, RiEdit2Fill } from "react-icons/ri";
+
+import {AiOutlineCheckCircle, AiTwotoneCheckCircle} from "react-icons/ai";
 
 const sampleList = [
   24,
@@ -22,16 +32,12 @@ const sampleid = [
   6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
 ];
 
-// const sampleData = [
-
-// ];
-
 const ENTRY = 'Entry';
 
-const newvarnum = 5;
+
+Modal.setAppElement("#root");   //DIALOG BOX.....
 
 function App() {
-  // const [people, setPeople] = useState(data);
   const [people, setPeople] = useState(() => readFromStorage(ENTRY) || []);
   const [refresh, setRefresh] = useState(false);
 
@@ -39,17 +45,37 @@ function App() {
 
   const [dateSelected, setDateSelected] = useState(0);
 
-  /*  //This is later function to select dates...
-  const goToDate = (date_number) => {
-    // setHighlightMessage(date_number);
-    setDateSelected(date_number);
-    // return dispMsg[messageNumber];
-  };
-  */
+  const [isOpen, setIsOpen] = useState(false);   //DIALOG BOX.....
+
+  function toggleModal() {
+    setIsOpen(!isOpen);
+  }   //DIALOG BOX.....
+
+
+
+
+  // function popUpBox() {
+  //   return (
+  //     <Popup trigger={<button> Trigger</button>} position="right center">
+  //       <div>Popup content here !!</div>
+  //     </Popup>
+  //   );
+  // }
+
+
+
+  // const Modal = () => (
+  //   <Popup trigger={<button className="button"> Open Modal </button>} modal>
+  //     <span> Modal content </span>
+  //   </Popup>
+  // );
+
+
+
+
 
   useEffect(() => {
     writeToStorage(ENTRY, data);
-    // writeToStorage(ENTRY, []);
   });
 
   // const newObj = {}
@@ -72,7 +98,7 @@ function App() {
               <button className={cn('dates', { selectedDates: dateSelected })}
                 onClick={
                   () => {
-                    // goToDate(index);
+
                   }
                 }
               >
@@ -99,7 +125,12 @@ function App() {
         }
         <button class="addbutton"
           onClick={() => {
-            setGenerateID((x) => x + 1);
+            toggleModal();   //DIALOG BOX......
+            // popUpBox();
+
+
+
+            /*setGenerateID((x) => x + 1);
 
             const newObj = {
               id: generateID,
@@ -112,18 +143,82 @@ function App() {
             };
 
             data.push(newObj);
-
-            // console.log(data);
-            // setPeople(data);
-
             // setPeople([...data, newObj]);
-            writeToStorage(ENTRY, data);
+            writeToStorage(ENTRY, data);*/  //PARTIALLY WORKING......
+
 
           }}
         >
           {/* <BsPlus/> */}
         +
         </button>
+
+
+        {/* THIS CODE SNIPPET BELOW IS FOR DIALOG BOX...... */}
+        <Modal
+
+          isOpen={isOpen}
+          onRequestClose={toggleModal}
+          contentLabel="My dialog"
+          className="mymodal"
+          overlayClassName="myoverlay"
+          closeTimeoutMS={500}
+        >
+          {/* <div>Add Details hdfhisdflsdgjsbbgjkbskjvnvvn hdfhisdflefefefefe</div> */}
+          {/* <button onClick={toggleModal}>Close modal</button>
+          <button onClick={toggleModal}>Close modal</button>
+
+          <button onClick={toggleModal}>Close modal</button>
+          <button onClick={toggleModal}>Close modal</button> */}
+
+          {/* <h3>Add Details <GrFormClose className="bdayIcon" onClick={toggleModal} /></h3> */}
+
+          <header>
+            <RiEdit2Fill className="editIcon" />
+            <h3>Add Details</h3>
+            <RiCloseCircleLine className="dialogCloseIcon" onClick={toggleModal} />
+          </header>
+
+          <h6>Name</h6>
+          <textarea
+            className="dialogTextArea"
+            placeholder='Enter the Name'
+          >
+          </textarea>
+
+          <h6>Age</h6>
+          <textarea
+            className="dialogTextArea"
+            placeholder='Enter the Age'
+          >
+          </textarea>
+
+          <h6>Work</h6>
+          <textarea
+            className="dialogTextArea"
+            placeholder='Working at'
+          >
+          </textarea>
+
+
+          <h6>About</h6>
+          <textarea
+            className="dialogTextArea"
+            placeholder='Description'
+          >
+          </textarea>
+
+          {/* <textarea
+            className="dialogTextArea"
+            placeholder='Birthdate'
+          >
+          </textarea> */}
+          {/* Later for date picker...... */}
+
+          <AiOutlineCheckCircle className="dialogDoneIcon" onClick={toggleModal} />
+
+        </Modal>
+
       </div>
 
       {/* This below snippet is to call all dtata values in data api in the form of <List/> class */}
@@ -144,7 +239,15 @@ function App() {
       }
       <button onClick={() => {
         setRefresh(!refresh)
-        // { refresh ? setPeople(data) : setPeople([]) }//PARTIALLY WORKING...
+        let deleteArray = [...data];
+
+        deleteArray.splice(0, deleteArray.length);
+        setPeople(deleteArray);
+
+        { refresh ? setPeople(data) : setPeople([]) }//PARTIALLY WORKING...
+        // { refresh ? readFromStorage(ENTRY || []) : setPeople(data) }
+        // { refresh ? readFromStorage(ENTRY || []) : writeToStorage(ENTRY, deleteArray) }
+
       }
       }>
         {refresh ? 'Reset' : 'Clear all'}
