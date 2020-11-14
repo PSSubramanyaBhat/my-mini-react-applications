@@ -83,21 +83,25 @@ function App() {
   }
 
 
-  // function popUpBox() {
-  //   return (
-  //     <Popup trigger={<button> Trigger</button>} position="right center">
-  //       <div>Popup content here !!</div>
-  //     </Popup>
-  //   );
-  // }
+  /*  
+  function popUpBox() {
+      return (
+        <Popup trigger={<button> Trigger</button>} position="right center">
+          <div>Popup content here !!</div>
+        </Popup>
+      );
+    }
+  */
 
 
 
-  // const Modal = () => (
-  //   <Popup trigger={<button className="button"> Open Modal </button>} modal>
-  //     <span> Modal content </span>
-  //   </Popup>
-  // );
+  /*
+  const Modal = () => (
+    <Popup trigger={<button className="button"> Open Modal </button>} modal>
+      <span> Modal content </span>
+    </Popup>
+  );
+  */
 
 
 
@@ -159,25 +163,6 @@ function App() {
             toggleModal();   //DIALOG BOX......
             // popUpBox();
 
-
-
-            /*setGenerateID((x) => x + 1);
-
-            const newObj = {
-              id: generateID,
-              name: 'Bertie Yates',
-              age: 29,
-              image: 'https://cdn3.iconfinder.com/data/icons/developers-iconset/90/Developers_Colorai-04-512.png',
-                //'https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg',
-              workplace: 'Yahoo Company',
-              description: 'Hi, I am a front end developer, and I like to draw and sing',
-            };
-
-            data.push(newObj);
-            // setPeople([...data, newObj]);
-            writeToStorage(ENTRY, data);*/  //PARTIALLY WORKING......
-
-
           }}
         >
           {/* <BsPlus/> */}
@@ -203,7 +188,6 @@ function App() {
           </header>
 
 
-
           <h6>Name</h6>
           <textarea
             className="dialogTextArea"
@@ -214,8 +198,6 @@ function App() {
             }}
           >
           </textarea>
-
-
 
 
           <h6>Age</h6>
@@ -230,8 +212,6 @@ function App() {
           </textarea>
 
 
-
-
           <h6>Work</h6>
           <textarea
             className="dialogTextArea"
@@ -242,10 +222,6 @@ function App() {
             }}
           >
           </textarea>
-
-
-
-
 
 
           <h6>About</h6>
@@ -267,29 +243,12 @@ function App() {
           </textarea> */}
           {/* Later for date picker...... */}
 
-          <AiOutlineCheckCircle className="dialogDoneIcon" onClick={
-
-            () => {
-              // setGenerateID((x) => x + 1);
-
-              // const newObj = {
-              //   id: generateID,
-              //   name: 'Bertie Yates',
-              //   age: 29,
-              //   image: 'https://cdn3.iconfinder.com/data/icons/developers-iconset/90/Developers_Colorai-04-512.png',
-              //   workplace: 'Yahoo Company',
-              //   description: 'Hi, I am a front end developer, and I like to draw and sing',
-              // };
-
-              // data.push(newObj);
-              // // setPeople([...data, newObj]);
-              // writeToStorage(ENTRY, data);  //PARTIALLY WORKING......
-
-
+          <AiOutlineCheckCircle className="dialogDoneIcon"
+            onClick={() => {
               saveNewEntry();
               toggleModal();
             }
-          } />
+            } />
 
         </Modal>
 
